@@ -20,6 +20,6 @@ from django.contrib import admin
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url('artapp/', include('artapp.urls', namespace='artapp'))
+    url('^artapp/', include('artapp.urls', namespace='artapp'))
 
 ]

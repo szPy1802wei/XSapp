@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>编辑分类</title>
+</head>
+<body>
+<h1>分类编辑页面</h1>
+<hr>
+<form action="/artapp/tags", method="post">
+    {% csrf_token %}
+    {% if tag %}
+{#        编辑的时候用隐藏域#}
+        <input type="hidden" name="id" value="{{ tag.id }}">
+    {% endif %}
+    <input type="" name="title" value="{{ tag.name }}" placeholder="请输入分类名称">
+    <button>提交</button>
+</form>
+</body>
+</html>

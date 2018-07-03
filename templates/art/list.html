@@ -3,9 +3,155 @@
 <head>
     <meta charset="UTF-8">
     <title>文章列表页面</title>
+    <style>
+        #tag_nav{
+            padding: 5px;
+{#            标准字体的2倍#}
+            font-size: 12px;
+        }
+        #tag_nav a{
+{#            #a标签下划线去掉#}
+            text-decoration: none;
+{#            # 指针为手#}
+            cursor: pointer;
+            padding: 5px;
+            background-color: #66c5e6;
+            border: 1px solid blue;
+            border-radius: 5px;
+        }
+        .tag_all{
+            background-color: palegoldenrod;
+        }
+        #art_container{
+            list-style: none;
+
+        }
+        #art_container li{
+            float: left;
+            margin: 5px;
+        }
+{#        动态效果#}
+         #art_container li img:hover{
+            box-shadow: 2px 2px 5px dodgerblue;
+             transform: scale3d(1.05,1.05,1.05);
+             transition: transform ease-in-out 1s;
+        }
+         #art_container li dd{
+            padding: 2px;
+            margin: 0px;
+        }
+          #art_container li label{
+            display: block;
+        }
+{#        清楚浮动#}
+        #art_container:after{
+            content: '';
+            display: block;
+            height: 0;
+            overflow: hidden;
+            clear: both;
+        }
+    </style>
 </head>
 <body>
 <h1>文章列表</h1>
-{{ name }}---{{ age }}
+<div id="tag_nav">
+    <b>所有分类:</b>
+    <a href="/art/" class="tag_all">所有</a>
+    {% for tag in tags %}
+        <a href="/art/?tag={{ tag.id }}">{{ tag.title }}</a>
+    {% endfor %}
+
+</div>
+
+{#所有文章#}
+<ul id="art_container">
+{#    {% for art in arts %}#}
+    <li>
+        <dl>
+            <dt>
+                <img src="https://qidian.qpic.cn/qdbimg/349573/1010734492/180" alt="" width="80" height="160">
+            </dt>
+            <dd>
+                <label for="">我变成了鲲 </label>
+                <label for="">作者:牛头大酋长</label>
+                <label for="">分类:现代小说</label>
+            </dd>
+            <dd>
+
+{#                    <a href="/artapp/show_detail">阅读</a>#}
+                <button onclick="detail()">阅读</button>
+
+            </dd>
+        </dl>
+    </li>
+     <li>
+        <dl>
+            <dt>
+                <img src="https://qidian.qpic.cn/qdbimg/349573/1011453794/180" alt="" width="80" height="100">
+            </dt>
+            <dd>
+                <label for="">我变成了鲲 </label>
+                <label for="">作者:牛头大酋长level0</label>
+                <label for="">分类:现代小说</label>
+            </dd>
+            <dd>
+                <button>阅读</button>
+            </dd>
+        </dl>
+    </li>
+     <li>
+        <dl>
+            <dt>
+                <img src="https://qidian.qpic.cn/qdbimg/349573/1011453794/180" alt="" width="80" height="100">
+            </dt>
+            <dd>
+                <label for="">我变成了鲲 </label>
+                <label for="">作者:牛头大酋长level0</label>
+                <label for="">分类:现代小说</label>
+            </dd>
+            <dd>
+                <button>阅读</button>
+            </dd>
+        </dl>
+    </li>
+     <li>
+        <dl>
+            <dt>
+                <img src="https://qidian.qpic.cn/qdbimg/349573/1010734492/180" alt="" width="200" height="240">
+            </dt>
+            <dd>
+                <label for="">我变成了鲲 </label>
+                <label for="">作者:牛头大酋长level0</label>
+                <label for="">分类:现代小说</label>
+            </dd>
+            <dd>
+                <button>阅读</button>
+            </dd>
+        </dl>
+    </li>
+     <li>
+        <dl>
+            <dt>
+                <img src="https://qidian.qpic.cn/qdbimg/349573/1010734492/180" alt="" width="140" height="100">
+            </dt>
+            <dd>
+                <label for="">我变成了鲲 </label>
+                <label for="">作者:牛头大酋长level0</label>
+                <label for="">分类:现代小说</label>
+            </dd>
+            <dd>
+                <button>阅读</button>
+            </dd>
+        </dl>
+    </li>
+{#     {% endfor %}#}
+</ul>
+<script>
+
+    function detail() {
+        window.open('/artapp/show_detail/')
+    }
+</script>
 </body>
 </html>
